@@ -42,7 +42,7 @@ function closeWriteCard() {
 function createGrid(totalCardsCount) {
     let width = $(".MainArea").width();
     let rowCount = Math.round(totalCardsCount/3)+1;
-    let colCount = Math.floor(width/272);
+    let colCount = Math.round(width/272)-1;
     console.log(colCount);
     var container = document.createElement('div');
     container.id = "card-grid";

@@ -23,35 +23,35 @@ function saveMessage() {
     // response.record.messages = messagesJSON.messages
     console.log(response);
     
-    updateJsonBin();
+    // updateJsonBin();
     
 }
 
 function retriveJsonData() {
-    // $.ajax({url: "https://api.npoint.io/c4b4a76ba83b56aa77d3", success: function(result){
-    //     // console.log(JSON.stringify(result));
-    //     messagesJSON = result
-    //     localStorage.setItem('messages', JSON.stringify(messagesJSON));
-    //     createCards();
-    //   }});
+    $.ajax({url: "https://api.npoint.io/c4b4a76ba83b56aa77d3", success: function(result){
+        // console.log(JSON.stringify(result));
+        messagesJSON = result
+        localStorage.setItem('messages', JSON.stringify(messagesJSON));
+        createCards();
+      }});
 
-    let req = new XMLHttpRequest();
+    // let req = new XMLHttpRequest();
 
-    req.onreadystatechange = () => {
-        if (req.readyState == XMLHttpRequest.DONE) {
-            console.log(req.responseText);
-            messagesJSON = JSON.parse(req.responseText);
-            response = JSON.parse(req.responseText);
-            console.log(messagesJSON);
-            localStorage.setItem('messages', JSON.stringify(messagesJSON));
-            createCards();
-        }
-    };
+    // req.onreadystatechange = () => {
+    //     if (req.readyState == XMLHttpRequest.DONE) {
+    //         console.log(req.responseText);
+    //         messagesJSON = JSON.parse(req.responseText);
+    //         response = JSON.parse(req.responseText);
+    //         console.log(messagesJSON);
+    //         localStorage.setItem('messages', JSON.stringify(messagesJSON));
+    //         createCards();
+    //     }
+    // };
 
-    req.open("GET", "https://api.jsonbin.io/v3/b/" + BIN_ID + "/latest?meta=false", true);
-    req.setRequestHeader("X-Master-Key", MASTER_KEY);
-    req.setRequestHeader("X-Bin-Meta", "false");
-    req.send();
+    // req.open("GET", "https://api.jsonbin.io/v3/b/" + BIN_ID + "/latest?meta=false", true);
+    // req.setRequestHeader("X-Master-Key", MASTER_KEY);
+    // req.setRequestHeader("X-Bin-Meta", "false");
+    // req.send();
 }
 
 function updateJsonBin() {
@@ -81,7 +81,7 @@ async function createCards() {
         let i = 0, j=0;
         let width = $(".MainArea").width();
         // 272 px = 17rem -> card width
-        let colCount = Math.floor(width/272);
+        let colCount = Math.round(width/272)-1;
         messagesJSON.messages.forEach(element => {
             console.log(element.title);
             let next = card.replace('$ID',element.id).replace('$TITLE',element.title);

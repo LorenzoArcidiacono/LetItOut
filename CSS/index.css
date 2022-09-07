@@ -2,11 +2,12 @@
     font-family: 'Chillax', sans-serif;
 }
 
-body{
+body {
     background-color: var(--yellow);
 }
 
 .main-grid {
+    
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -21,24 +22,49 @@ body{
 }
 
 .MainArea {
+    z-index: 1;
     height: 100%;
     grid-area: MainArea;
-    background-color: var(--yellow);
+    /* background-color: var(--yellow); */
+}
+
+.girl-img{
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: -1;
+}
+
+.man-img{
+    position: fixed;
+    top: 5rem;
+    left: 25rem;
+    z-index: -1;
 }
 
 .SecondaryArea {
+    position: fixed;
+    width: 20rem;
+    height: 100%;
+    min-width: 17rem;
     grid-area: SecondaryArea;
     background-color: var(--myred);
     padding: 1rem;
     margin: 0;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+
+.SecondaryArea p {
+    font-family: 'Chillax', sans-serif;
 }
 
 h1 {
-    text-align: center;
     font-family: 'Dancing Script', cursive;
 }
 
 .fab {
+    z-index: 1;
     transition-duration: 300ms;
     position: fixed;
     right: 3rem;
@@ -66,6 +92,7 @@ h1 {
 } */
 
 .card {
+    z-index: 1;
     transition-duration: 300ms;
     margin: 1rem;
     padding: 1rem;
@@ -87,7 +114,6 @@ h1 {
 }
 
 .card:hover {
-
     transform: scale(1.05);
 }
 
@@ -157,8 +183,8 @@ h1 {
 
 ul {
     display: flex;
-    justify-content:start;
-    align-items:left;
+    justify-content: start;
+    align-items: left;
     flex-direction: column;
     /* text-align: center; */
     list-style: none;
@@ -183,7 +209,8 @@ label {
     font-style: italic;
 }
 
-input,textarea {
+input,
+textarea {
     font-family: 'Chillax', sans-serif;
     font-size: 1rem;
     /* Uniform text field size */
@@ -199,12 +226,13 @@ input:focus {
     outline: none !important;
     border: 5px solid var(--yellow);
 }
+
 textarea:focus {
     outline: none !important;
     border: 5px solid var(--yellow);
 }
 
-.text-input{
+.text-input {
     height: auto;
 }
 
@@ -222,14 +250,15 @@ li button {
     background-color: var(--myred);
 }
 
-#card-grid{
+#card-grid {
     /* border: 1px solid red; */
     margin: 1rem;
 }
+
 /* .row{
     border: 1px solid red;
 } */
-.col{
+.col {
     display: inline-block;
     /* border: 1px solid red; */
 }
