@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <link rel="stylesheet" href="/CSS/colors.css">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@300,400,200&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-grid">
+        <div class="SecondaryArea">
+            <h1>Anything To Anyone</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae efficitur purus, id
+                scelerisque odio. Suspendisse blandit fermentum ullamcorper. Mauris nec accumsan velit, non volutpat
+                sapien. Donec quis ex nec velit molestie commodo. Nam volutpat massa dolor. Aenean massa elit, pulvinar
+                vitae dictum sed, luctus sed arcu. Praesent commodo porttitor massa. Nulla fringilla augue risus, id
+                maximus nisl pharetra ac. Maecenas porta a elit sit amet elementum. Ut libero purus, gravida non
+                eleifend et, congue quis felis. Integer fringilla sapien id sapien consectetur maximus. Interdum et
+                malesuada fames ac ante ipsum primis in faucibus. Cras at placerat massa, laoreet sagittis.
+            </p>
+        </div>
+        <div class="MainArea">
+            <!-- <div class="card" onclick="openCard()">
+                <h2>Title</h2>
+            </div> -->
+        </div>
+
+    </div>
+
+    <button class="fab">
+        <!-- <i class="material-icons md-48">add</i> -->
+
+        <lord-icon src="https://cdn.lordicon.com/wloilxuq.json" trigger="hover"
+            colors="primary:#000000,secondary:#000000" style="width:4rem;height:4rem" onclick="openWriteCard()">
+        </lord-icon>
+    </button>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay-card">
+            <lord-icon class="close-icon" src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
+                colors="primary:#121331,secondary:#000000" style="width:2.5rem;height:2.5rem" onclick="closeCard()">
+            </lord-icon>
+            <h2 class="overlay-title"></h2>
+            <p class="overlay-text"></p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-new-card">
+        <div class="overlay-card">
+            <lord-icon class="close-icon" src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
+                colors="primary:#121331,secondary:#000000" style="width:2.5rem;height:2.5rem"
+                onclick="closeWriteCard()">
+            </lord-icon>
+            <ul>
+                <li>
+                    <label for="title">Title:</label>
+                    <input class="title-input" type="text" required><br>
+                </li>
+                <li>
+                    <label for="Text">Text:</label>
+                    <textarea rows="5" class="text-input" required></textarea>
+                </li>
+                <li>
+                    <button onclick="saveMessage()">Share</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            retriveJsonData();
+        });
+    </script>
+
+    <script src="/JS/graphic.js"></script>
+    <script src="/JS/messages.js"></script>
+</body>
+
+</html>
