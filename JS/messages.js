@@ -6,11 +6,22 @@ let response;
 
 function saveMessage() {
     let title = $(".title-input").val();
-    $(".title-input").val('');
     let text = $(".text-input").val();
+    if (!title || !text) {
+        $(".title-input").attr("placeholder", "Required");
+        $(".text-input").attr("placeholder", "Required");
+        console.log(`Error: Title and text are required`);
+        return;
+    }
+
+    $(".title-input").val('');
     $(".text-input").val('');
+    $(".title-input").attr("placeholder", "");
+    $(".text-input").attr("placeholder", "");
+
     let id = Math.random().toString(36).slice(2, 12);
     console.log(`${id}:${title}: ${text}`);
+    
     closeWriteCard();
 
     let jsondata = {
@@ -19,21 +30,24 @@ function saveMessage() {
         text: text
     }
 
-    messagesJSON.messages.push(jsondata);
-    // response.record.messages = messagesJSON.messages
-    console.log(response);
-    
+    messagesJSON.messages.unshift(jsondata);
+    console.log(`Messages: ${JSON.stringify(messagesJSON)}`);
+    // console.log(response);
+
     // updateJsonBin();
-    
+
 }
 
 function retriveJsonData() {
-    $.ajax({url: "https://api.npoint.io/c4b4a76ba83b56aa77d3", success: function(result){
-        // console.log(JSON.stringify(result));
-        messagesJSON = result
-        localStorage.setItem('messages', JSON.stringify(messagesJSON));
-        createCards();
-      }});
+    $.ajax({
+        url: "https://api.npoint.io/c4b4a76ba83b56aa77d3",
+        success: function (result) {
+            // console.log(JSON.stringify(result));
+            messagesJSON = result
+            localStorage.setItem('messages', JSON.stringify(messagesJSON));
+            createCards();
+        }
+    });
 
     // let req = new XMLHttpRequest();
 
@@ -54,6 +68,9 @@ function retriveJsonData() {
     // req.send();
 }
 
+// TODO: On Update show the new card.
+// NOTE: Don't reload the page cause it's another api call
+// IDEA: Call createCards after emptying MainArea and adjourn messagesJSON
 function updateJsonBin() {
     let req = new XMLHttpRequest();
 
@@ -63,7 +80,7 @@ function updateJsonBin() {
         }
     };
 
-    req.open("PUT", "https://api.jsonbin.io/v3/b/"+BIN_ID, true);
+    req.open("PUT", "https://api.jsonbin.io/v3/b/" + BIN_ID, true);
     req.setRequestHeader("Content-Type", "application/json");
     req.setRequestHeader("X-Master-Key", MASTER_KEY);
     req.send(JSON.stringify(messagesJSON));
@@ -71,28 +88,28 @@ function updateJsonBin() {
 
 async function createCards() {
     let card = `<div class="card" onclick="openCard('$ID')"><h2>$TITLE</h2></div>`
-    if(messagesJSON == undefined) {
+    if (messagesJSON == undefined) {
         setTimeout(() => {
             createCards();
         }, 400);
-    }
-    else{
+    } else {
         await createGrid(messagesJSON.messages.length);
-        let i = 0, j=0;
+        let i = 0,
+            j = 0;
         let width = $(".MainArea").width();
         // 272 px = 17rem -> card width
-        let colCount = Math.round(width/272)-1;
+        let colCount = Math.round(width / 272) - 1;
+        
         messagesJSON.messages.forEach(element => {
             console.log(element.title);
-            let next = card.replace('$ID',element.id).replace('$TITLE',element.title);
+            let next = card.replace('$ID', element.id).replace('$TITLE', element.title);
             console.log(next);
             $(`.container-grid #row${i} #col${j}`).append(next);
             j++;
-            if(j == colCount){
+            if (j == colCount) {
                 j = 0;
                 i++;
             }
         });
     }
 }
-

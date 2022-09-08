@@ -33,6 +33,7 @@ body {
     bottom: 5rem;
     right: 5rem;
     z-index: -1;
+    filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(120%);
 }
 
 .man-img{
@@ -40,6 +41,8 @@ body {
     top: 5rem;
     left: 25rem;
     z-index: -1;
+    height: 42%;
+    filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%);
 }
 
 .SecondaryArea {
@@ -87,10 +90,6 @@ h1 {
     transform: scale(1.3);
 }
 
-/* .material-icons.md-48 {
-    font-size: 2rem;
-} */
-
 .card {
     z-index: 1;
     transition-duration: 300ms;
@@ -98,6 +97,7 @@ h1 {
     padding: 1rem;
     width: 17rem;
     display: block;
+    opacity: 0.9;
     border: 1px solid var(--blue2);
     border-radius: 16px;
     background-color: var(--blue2);
@@ -118,6 +118,7 @@ h1 {
 }
 
 .overlay {
+    backdrop-filter: blur(70px);
     position: fixed;
     /* Sit on top of the page content */
     display: none;
@@ -130,7 +131,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     /* Black background with opacity */
     z-index: 2;
     /* Specify a stack order in case you're using a different order for other elements */
@@ -215,6 +216,8 @@ textarea {
     font-size: 1rem;
     /* Uniform text field size */
     width: 35rem;
+    max-width: 35rem;
+    min-width: 35rem;
     height: 2rem;
     box-sizing: border-box;
     /* Match form field borders */
@@ -238,15 +241,16 @@ textarea:focus {
 
 li button {
     font-family: 'Chillax', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin: auto;
-    padding: .5rem;
+    padding: .7rem;
     float: left;
     width: auto;
     position: relative;
     left: 30rem;
     cursor: pointer;
     border-radius: 16px;
+    border: 2px solid var(--myred);
     background-color: var(--myred);
 }
 

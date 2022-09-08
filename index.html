@@ -19,6 +19,8 @@
 
 <body>
     <div class="main-grid">
+
+        <!-- INFORMATION AREA -->
         <div class="SecondaryArea">
             <h1>Let It Out</h1>
             <p>
@@ -37,24 +39,27 @@
             <p>Do not share personal data, do not use real names of people, do not offend those who are reading. <br>
                 <strong> Remember:</strong> this cannot be the solution to your difficulties, if you think you need help contact a specialist, he/she will surely be able to help you </p>
         </div>
+
+        <!-- CARD AREA -->
         <div class="MainArea">
             <!-- <div class="card" onclick="openCard()">
                 <h2>Title</h2>
             </div> -->
-            <img class="girl-img" src="/IMG/girl.png" alt="">
-            <img class="man-img" src="/IMG/man.png" alt="">
         </div>
-
     </div>
 
-    <button class="fab">
-        <!-- <i class="material-icons md-48">add</i> -->
+    <!-- BACKGROUND IMAGES -->
+    <img class="girl-img" src="/IMG/girl.png" alt="">
+    <img class="man-img" src="/IMG/man.png" alt="">
 
+    <!-- FAB -->
+    <button class="fab">
         <lord-icon src="https://cdn.lordicon.com/wloilxuq.json" trigger="hover"
             colors="primary:#000000,secondary:#000000" style="width:4rem;height:4rem" onclick="openWriteCard()">
         </lord-icon>
     </button>
 
+    <!-- HIDDEN STUFF -->
     <div class="overlay" id="overlay">
         <div class="overlay-card">
             <lord-icon class="close-icon" src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
@@ -86,6 +91,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- SCRIPTS -->
     <script>
         $(document).ready(function () {
             retriveJsonData();
