@@ -41,7 +41,7 @@ body {
     top: 5rem;
     left: 25rem;
     z-index: -1;
-    height: 42%;
+    height: 20rem;
     filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%);
 }
 

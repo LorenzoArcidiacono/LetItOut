@@ -67,4 +67,17 @@ function createGrid(totalCardsCount) {
     return container;
 }
 
-// TODO: random background image generator
+function backgroundImageGenerator() {
+    let first = getRandomNumber(12)
+    let second = getRandomNumber(12)
+    while(first == second){
+        second = getRandomNumber(12);
+    }
+    console.log(`${first},${second}`);
+    $(".first-img").attr("src",`/IMG/img${first}.png`);
+    $(".sec-img").attr("src",`/IMG/img${second}.png`);
+}
+
+function getRandomNumber(max) {
+    return (Math.floor(Math.random() *100) % max+1);
+}
