@@ -3,7 +3,8 @@ let messages;
 
 // Open/Close the single card view
 function openCard(id) {
-    if(messages == null) {
+    let update = localStorage.getItem('updatedMessages');
+    if(messages == null || update) {
         messages = JSON.parse(localStorage.getItem('messages'));
         console.log(`messages: ${messages}`);
     }
@@ -65,3 +66,5 @@ function createGrid(totalCardsCount) {
     $(".MainArea").append(container);
     return container;
 }
+
+// TODO: random background image generator

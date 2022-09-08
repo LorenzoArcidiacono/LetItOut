@@ -28,7 +28,7 @@ body {
     /* background-color: var(--yellow); */
 }
 
-.girl-img{
+.first-img{
     position: fixed;
     bottom: 5rem;
     right: 5rem;
@@ -36,7 +36,7 @@ body {
     filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(120%);
 }
 
-.man-img{
+.sec-img{
     position: fixed;
     top: 5rem;
     left: 25rem;
@@ -266,3 +266,6 @@ li button {
     display: inline-block;
     /* border: 1px solid red; */
 }
+
+/* []: SecondaryArea doesn't shrink
+   []: card doesn't shrink*/

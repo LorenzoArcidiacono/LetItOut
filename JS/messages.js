@@ -34,6 +34,9 @@ function saveMessage() {
     console.log(`Messages: ${JSON.stringify(messagesJSON)}`);
     // console.log(response);
 
+    localStorage.setItem('updatedMessages',true);
+    localStorage.setItem('messages',JSON.stringify(messagesJSON));
+    updateCardGrid();
     // updateJsonBin();
 
 }
@@ -68,9 +71,7 @@ function retriveJsonData() {
     // req.send();
 }
 
-// TODO: On Update show the new card.
-// NOTE: Don't reload the page cause it's another api call
-// IDEA: Call createCards after emptying MainArea and adjourn messagesJSON
+
 function updateJsonBin() {
     let req = new XMLHttpRequest();
 
@@ -112,4 +113,9 @@ async function createCards() {
             }
         });
     }
+}
+
+function updateCardGrid() {
+    $(".MainArea").empty();
+    createCards();
 }
