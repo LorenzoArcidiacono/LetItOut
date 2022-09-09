@@ -2,7 +2,7 @@
 
 ## Idea
 
-A "Social Network" where users can publish their stories, their outlets or whatever else, completely anonymously.
+A "Social Network" where users can share their stories, their outlets or whatever else, completely anonymously.
 
 ## Where am I?
 
