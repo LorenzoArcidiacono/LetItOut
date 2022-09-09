@@ -8,60 +8,34 @@ body {
     padding: 0;
 }
 
-.main-grid {
-
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-auto-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        "SecondaryArea MainArea MainArea MainArea"
-        "SecondaryArea MainArea MainArea MainArea"
-        "SecondaryArea MainArea MainArea MainArea";
-}
-
 .MainArea {
     z-index: 1;
     height: auto;
-    grid-area: MainArea;
+    margin-left: 22rem;
     /* background-color: var(--yellow); */
 }
 
-.first-img {
-    position: fixed;
-    bottom: 5rem;
-    right: 5rem;
-    z-index: -1;
-    filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(120%);
-}
 
-.sec-img {
+.Sidenav {
     position: fixed;
-    top: 5rem;
-    left: 25rem;
-    z-index: -1;
-    height: 20rem;
-    /* filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%); */
-    filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
-}
-
-.SecondaryArea {
-    /* position: fixed; */
-    width: 20rem;
+    width: 22rem;
     height: 100%;
-    min-width: 17rem;
-    grid-area: SecondaryArea;
+    /* min-width: 17rem; */
     background-color: var(--myred);
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 0;
     font-family: 'Dancing Script', cursive;
     text-align: center;
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
 }
 
-.SecondaryArea p {
+.Sidenav p {
     font-family: 'Chillax', sans-serif;
 }
 
@@ -259,7 +233,7 @@ li button {
 
 #card-grid {
     /* border: 1px solid red; */
-    margin: 1rem;
+    margin-left: 3rem;
 }
 
 /* .row{
@@ -270,21 +244,38 @@ li button {
     /* border: 1px solid red; */
 }
 
-/* []: SecondaryArea doesn't shrink
+/* []: Sidenav doesn't shrink
    []: card doesn't shrink*/
+
+.first-img {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: -1;
+    filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(120%);
+}
+
+.sec-img {
+    position: fixed;
+    top: 5rem;
+    left: 25rem;
+    z-index: -1;
+    height: 20rem;
+    /* filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%); */
+    filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
+}
+
 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
-    .SecondaryArea {
+    .Sidenav {
         display: none;
     }
 
-    .main-grid {
-        grid-template-areas:
-            "MainArea MainArea MainArea MainArea"
-            "MainArea MainArea MainArea MainArea"
-            "MainArea MainArea MainArea MainArea";
+    .MainArea {
+        width: 100%;
+        margin: 0;
     }
 
     .sec-img {
@@ -297,17 +288,25 @@ li button {
         scale: 0.7;
     }
 
-    .overlay-card{
+    .overlay-card {
         width: 80%;
     }
 
-    .fab{
-        right: 40%;
+    .fab {
+        position: absolute;
+        margin: 0;
+        right: 45%;
     }
 
-    .card{
+    .card {
         width: 80%;
     }
+
+    #card-grid {
+        /* border: 1px solid red; */
+        margin-left: auto auto;
+    }
+
     .col {
         display: block;
     }
