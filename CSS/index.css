@@ -265,17 +265,53 @@ li button {
     filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
 }
 
+.topnav{
+    display: none;
+}
+.closebtn{
+    display: none;
+}
+  
 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
     .Sidenav {
         display: none;
+        width: 100%;
+        padding: 1%;
+        overflow-x: hidden; /* Disable horizontal scroll */
+        right: 0;
+
     }
+    .Sidenav p{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .Sidenav .closebtn {
+        position: absolute;
+        display: block;
+        bottom: 1rem;
+        right: 52%;
+        font-size: 4rem;
+      }
+
+    .topnav {
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 3;
+        background-color: var(--myred);
+        height: 4rem;
+        overflow: hidden;
+      }
 
     .MainArea {
         width: 100%;
         margin: 0;
+        margin-top: 5rem;
     }
 
     .sec-img {
@@ -293,7 +329,7 @@ li button {
     }
 
     .fab {
-        position: absolute;
+        position: fixed;
         margin: 0;
         right: 45%;
     }

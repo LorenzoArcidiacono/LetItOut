@@ -81,3 +81,19 @@ function backgroundImageGenerator() {
 function getRandomNumber(max) {
     return (Math.floor(Math.random() *100) % max+1);
 }
+
+function openSidenav() {
+    $(".Sidenav").css("display", "block");
+    $(".topnav").css("display", "none");
+    $(".fab").css("display", "none");
+    $(".closebtn").css("display", "block");
+
+}
+
+function closeSidenav() {
+    $(".Sidenav").css("display", "none");
+    $(".topnav").css("display", "block");
+    $(".fab").css("display", "block");
+    $(".closebtn").css("display", "none");
+
+}
