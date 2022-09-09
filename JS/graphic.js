@@ -74,8 +74,8 @@ function backgroundImageGenerator() {
         second = getRandomNumber(12);
     }
     console.log(`${first},${second}`);
-    $(".first-img").attr("src",`/IMG/img${first}.png`);
-    $(".sec-img").attr("src",`/IMG/img${second}.png`);
+    $(".first-img").attr("src",`./IMG/img${first}.png`);
+    $(".sec-img").attr("src",`./IMG/img${second}.png`);
 }
 
 function getRandomNumber(max) {
