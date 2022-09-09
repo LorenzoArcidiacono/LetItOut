@@ -4,10 +4,12 @@
 
 body {
     background-color: var(--yellow);
+    margin: 0;
+    padding: 0;
 }
 
 .main-grid {
-    
+
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -23,12 +25,12 @@ body {
 
 .MainArea {
     z-index: 1;
-    height: 100%;
+    height: auto;
     grid-area: MainArea;
     /* background-color: var(--yellow); */
 }
 
-.first-img{
+.first-img {
     position: fixed;
     bottom: 5rem;
     right: 5rem;
@@ -36,17 +38,18 @@ body {
     filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(120%);
 }
 
-.sec-img{
+.sec-img {
     position: fixed;
     top: 5rem;
     left: 25rem;
     z-index: -1;
     height: 20rem;
-    filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%);
+    /* filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%); */
+    filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
 }
 
 .SecondaryArea {
-    position: fixed;
+    /* position: fixed; */
     width: 20rem;
     height: 100%;
     min-width: 17rem;
@@ -174,7 +177,7 @@ h1 {
     float: left;
     width: auto;
     position: relative;
-    left: 37rem;
+    left: 85%;
     cursor: pointer;
 }
 
@@ -215,9 +218,9 @@ textarea {
     font-family: 'Chillax', sans-serif;
     font-size: 1rem;
     /* Uniform text field size */
-    width: 35rem;
-    max-width: 35rem;
-    min-width: 35rem;
+    /* width: 90%; */
+    max-width: 90%;
+    min-width: 90%;
     height: 2rem;
     box-sizing: border-box;
     /* Match form field borders */
@@ -247,7 +250,7 @@ li button {
     float: left;
     width: auto;
     position: relative;
-    left: 30rem;
+    right: 1%;
     cursor: pointer;
     border-radius: 16px;
     border: 2px solid var(--myred);
@@ -269,3 +272,43 @@ li button {
 
 /* []: SecondaryArea doesn't shrink
    []: card doesn't shrink*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+    .SecondaryArea {
+        display: none;
+    }
+
+    .main-grid {
+        grid-template-areas:
+            "MainArea MainArea MainArea MainArea"
+            "MainArea MainArea MainArea MainArea"
+            "MainArea MainArea MainArea MainArea";
+    }
+
+    .sec-img {
+        display: none;
+    }
+
+    .first-img {
+        bottom: 5rem;
+        right: 0;
+        scale: 0.7;
+    }
+
+    .overlay-card{
+        width: 80%;
+    }
+
+    .fab{
+        right: 40%;
+    }
+
+    .card{
+        width: 80%;
+    }
+    .col {
+        display: block;
+    }
+}
