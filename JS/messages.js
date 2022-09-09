@@ -1,5 +1,4 @@
-const BIN_ID = "6318c12b5c146d63ca92601c";
-const MASTER_KEY = "$2b$10$rwQp/SJS4uB0ZTzBw8L5DuNqbw4ZxFvVvzKz91Nxs28n82CkvYgqy";
+const PANTRY_ID = "ec0c17f7-74e8-4735-b0e7-828f037d73db"
 
 let messagesJSON;
 let response;
@@ -21,58 +20,61 @@ function saveMessage() {
 
     let id = Math.random().toString(36).slice(2, 12);
     console.log(`${id}:${title}: ${text}`);
-    
+
     closeWriteCard();
 
     let jsondata = {
-        id: id,
-        title: title,
-        text: text
+        messages: [{
+            id: id,
+            title: title,
+            text: text,
+            date: getDate()
+        }]
     }
 
-    messagesJSON.messages.unshift(jsondata);
+    messagesJSON.messages.push(jsondata.messages[0]);
     console.log(`Messages: ${JSON.stringify(messagesJSON)}`);
     // console.log(response);
 
-    localStorage.setItem('updatedMessages',true);
-    localStorage.setItem('messages',JSON.stringify(messagesJSON));
+    localStorage.setItem('updatedMessages', true);
+    localStorage.setItem('messages', JSON.stringify(messagesJSON));
     updateCardGrid();
-    // updateJsonBin();
+    updateJsonBin(jsondata);
 
 }
 
 function retriveJsonData() {
-    $.ajax({
-        url: "https://api.npoint.io/c4b4a76ba83b56aa77d3",
-        success: function (result) {
-            // console.log(JSON.stringify(result));
-            messagesJSON = result
-            localStorage.setItem('messages', JSON.stringify(messagesJSON));
-            createCards();
-        }
-    });
-
-    // let req = new XMLHttpRequest();
-
-    // req.onreadystatechange = () => {
-    //     if (req.readyState == XMLHttpRequest.DONE) {
-    //         console.log(req.responseText);
-    //         messagesJSON = JSON.parse(req.responseText);
-    //         response = JSON.parse(req.responseText);
-    //         console.log(messagesJSON);
+    // n:point
+    // $.ajax({
+    //     url: "https://api.npoint.io/c4b4a76ba83b56aa77d3",
+    //     success: function (result) {
+    //         // console.log(JSON.stringify(result));
+    //         messagesJSON = result
     //         localStorage.setItem('messages', JSON.stringify(messagesJSON));
     //         createCards();
     //     }
-    // };
+    // });
 
-    // req.open("GET", "https://api.jsonbin.io/v3/b/" + BIN_ID + "/latest?meta=false", true);
-    // req.setRequestHeader("X-Master-Key", MASTER_KEY);
-    // req.setRequestHeader("X-Bin-Meta", "false");
-    // req.send();
+    // PANTRY
+    let req = new XMLHttpRequest();
+    req.onreadystatechange = () => {
+        if (req.readyState == XMLHttpRequest.DONE) {
+            console.log(req.responseText);
+            messagesJSON = JSON.parse(req.responseText);
+            response = JSON.parse(req.responseText);
+            console.log(messagesJSON);
+            localStorage.setItem('messages', JSON.stringify(messagesJSON));
+            createCards();
+        }
+    };
+
+    req.open("GET", "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut");
+    req.send();
 }
 
 
-function updateJsonBin() {
+function updateJsonBin(data) {
+    // PANTRY
     let req = new XMLHttpRequest();
 
     req.onreadystatechange = () => {
@@ -81,10 +83,9 @@ function updateJsonBin() {
         }
     };
 
-    req.open("PUT", "https://api.jsonbin.io/v3/b/" + BIN_ID, true);
+    req.open("PUT", "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut");
     req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", MASTER_KEY);
-    req.send(JSON.stringify(messagesJSON));
+    req.send(JSON.stringify(data));
 }
 
 async function createCards() {
@@ -100,8 +101,8 @@ async function createCards() {
         let width = $(".MainArea").width();
         // 272 px = 17rem -> card width
         let colCount = Math.round(width / 272) - 1;
-        
-        messagesJSON.messages.forEach(element => {
+        // print card from newest
+        messagesJSON.messages.slice().reverse().forEach(element => {
             console.log(element.title);
             let next = card.replace('$ID', element.id).replace('$TITLE', element.title);
             console.log(next);
@@ -118,4 +119,17 @@ async function createCards() {
 function updateCardGrid() {
     $(".MainArea").empty();
     createCards();
+}
+
+function getDate() {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${day}-${month}-${year}`;
+    return currentDate;
+
 }

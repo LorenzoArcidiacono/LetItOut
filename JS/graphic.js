@@ -10,7 +10,7 @@ function openCard(id) {
     }
     let element = messages.messages.find(element => element.id == id)
     $(".overlay-title").text(element.title);
-    $(".overlay-text").text(element.text.replaceAll('\\n','\n'));
+    $(".overlay-text").text(element.text);
     $("#overlay").fadeIn();
     $("#overlay").css("display", "flex")
 }
