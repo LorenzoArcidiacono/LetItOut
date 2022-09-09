@@ -15,8 +15,8 @@ Yes please, there are so many things to do, and whoever would like to partecipat
 
 ## ToDo
 
-[ ] make the website responsive for smaller screen. At the moment it works only for laptop and other bigger screen.
-[ ] backend to store safely all the messages
-[ ] any good idea is welcome!
+- [ ] make the website responsive for smaller screen. At the moment it works only for laptop and other bigger screen.
+- [ ] backend to store safely all the messages
+- [ ] any good idea is welcome!
 
 Thanks, Lorenzo
