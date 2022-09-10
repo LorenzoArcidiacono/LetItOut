@@ -95,6 +95,7 @@ async function createCards() {
             createCards();
         }, 400);
     } else {
+        console.log(messagesJSON);
         await createGrid(messagesJSON.messages.length);
         let i = 0,
             j = 0;
