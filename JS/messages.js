@@ -103,17 +103,17 @@ async function createCards() {
         // 272 px = 17rem -> card width
         let colCount = Math.round(width / 272) - 1;
         // print card from newest
-//         messagesJSON.messages.slice().reverse().forEach(element => {
-//             console.log(element.title);
-//             let next = card.replace('$ID', element.id).replace('$TITLE', element.title);
-//             console.log(next);
-//             $(`.container-grid #row${i} #col${j}`).append(next);
-//             j++;
-//             if (j == colCount) {
-//                 j = 0;
-//                 i++;
-//             }
-//         });
+        messagesJSON.messages.slice().reverse().forEach(element => {
+            console.log(element.title);
+            let next = card.replace('$ID', element.id).replace('$TITLE', element.title);
+            console.log(next);
+            $(`.container-grid #row${i} #col${j}`).append(next);
+            j++;
+            if (j == colCount) {
+                j = 0;
+                i++;
+            }
+        });
     }
 }
 
