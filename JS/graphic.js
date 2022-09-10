@@ -81,3 +81,9 @@ function backgroundImageGenerator() {
 function getRandomNumber(max) {
     return (Math.floor(Math.random() *100) % max+1);
 }
+
+function closeSplashScreen() {
+    // $(".splash").fadeOut(800);    
+    $(".splash").slideUp(700);    
+
+}

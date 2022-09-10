@@ -39,6 +39,13 @@ body {
     font-family: 'Chillax', sans-serif;
 }
 
+.Sidenav h2{
+    font-size: 2rem;
+}
+.Sidenav h1{
+    font-size: 2.5rem;
+}
+
 h1 {
     font-family: 'Dancing Script', cursive;
 }
@@ -275,7 +282,7 @@ li button {
 
     .MainArea {
         width: 100%;
-        margin: 0;
+        margin: auto auto;
     }
 
     .sec-img {
@@ -300,14 +307,18 @@ li button {
 
     .card {
         width: 80%;
+        margin: 1rem auto;
     }
 
     #card-grid {
-        /* border: 1px solid red; */
-        margin-left: auto auto;
+        margin: 0 0;
     }
 
     .col {
         display: block;
+    }
+
+    .splash{
+        display: none;
     }
 }
