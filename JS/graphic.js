@@ -42,6 +42,7 @@ function closeWriteCard() {
 // TODO: numero di colonne in base alla dimensione dello schermo
 function createGrid(totalCardsCount) {
     let width = $(".MainArea").width();
+    console.log(`width:${width}`);
     let colCount = Math.round(width/272)-1;
     let rowCount = Math.round(totalCardsCount/colCount);
     console.log(`totalCard: ${totalCardsCount},row:${rowCount} col:${colCount}`);
