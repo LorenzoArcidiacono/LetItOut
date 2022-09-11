@@ -275,7 +275,7 @@ li button {
 
     .MainArea {
         width: 100%;
-        margin: 0;
+        margin: 0 auto;
     }
 
     .sec-img {
@@ -304,7 +304,7 @@ li button {
 
     #card-grid {
         /* border: 1px solid red; */
-        margin-left: auto auto;
+        margin: 0 auto;
     }
 
     .col {
