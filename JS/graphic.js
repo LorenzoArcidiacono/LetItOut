@@ -95,5 +95,6 @@ function convertRemToPixels(rem) {
 function closeSplashScreen() {
     // $(".splash").fadeOut(800);    
     $(".splash").slideUp(700);    
-
 }
+
+
