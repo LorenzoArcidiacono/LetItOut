@@ -41,11 +41,16 @@ function closeWriteCard() {
 
 // TODO: numero di colonne in base alla dimensione dello schermo
 function createGrid(totalCardsCount) {
-    let width = $(".MainArea").width();
-    console.log(`width:${width}`);
-    let colCount = Math.round(width/272)-1;
+    let widthMainArea = $(".MainArea").width();
+    let widthCard = convertRemToPixels(17);
+    console.log(`width: ${widthMainArea}, widthCard: ${widthCard}`);
+
+    let colCount = Math.round(widthMainArea/widthCard)-1;
+    if(colCount <= 0) colCount = 1;
     let rowCount = Math.round(totalCardsCount/colCount);
-    console.log(`totalCard: ${totalCardsCount},row:${rowCount} col:${colCount}`);
+    if(rowCount <= 0) rowCount = 1;
+    console.log(`row:${rowCount} col:${colCount}`);
+
     var container = document.createElement('div');
     container.id = "card-grid";
     container.className = "container-grid";
@@ -81,6 +86,10 @@ function backgroundImageGenerator() {
 
 function getRandomNumber(max) {
     return (Math.floor(Math.random() *100) % max+1);
+}
+
+function convertRemToPixels(rem) {    
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
 function closeSplashScreen() {

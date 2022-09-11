@@ -95,13 +95,15 @@ async function createCards() {
             createCards();
         }, 400);
     } else {
-        console.log(`messages:${messagesJSON}`);
         await createGrid(messagesJSON.messages.length);
         let i = 0,
             j = 0;
-        let width = $(".MainArea").width();
-        // 272 px = 17rem -> card width
-        let colCount = Math.round(width / 272) - 1;
+        let widthMainArea = $(".MainArea").width();
+        let widthCard = convertRemToPixels(17);
+        // 17rem -> card width
+        let colCount = Math.round(widthMainArea / widthCard) - 1;
+        if(colCount == 0) colCount = 1;
+        // console.log(Math.round(widthMainArea / widthCard));
         // print card from newest
         messagesJSON.messages.slice().reverse().forEach(element => {
             console.log(element.title);

@@ -282,7 +282,7 @@ li button {
 
     .MainArea {
         width: 100%;
-        margin: auto auto;
+        margin: 0 auto;
     }
 
     .sec-img {
@@ -300,18 +300,21 @@ li button {
     }
 
     .fab {
-        position: absolute;
+        /* position: fixed; */
         margin: 0;
-        right: 45%;
+        right: 10%;
+        bottom: 5%;
     }
 
     .card {
         width: 80%;
-        margin: 1rem auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #card-grid {
-        margin: 0 0;
+        /* border: 1px solid red; */
+        margin: 0 1rem;
     }
 
     .col {
