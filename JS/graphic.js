@@ -91,3 +91,10 @@ function getRandomNumber(max) {
 function convertRemToPixels(rem) {    
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
+
+function closeSplashScreen() {
+    // $(".splash").fadeOut(800);    
+    $(".splash").slideUp(700);    
+}
+
+
