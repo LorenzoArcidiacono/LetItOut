@@ -29,9 +29,9 @@
     white-space: nowrap;
     font-size: 1.6rem;
     width: 0;
-    animation: 
-      typing 3s steps(50, end) forwards,
-      blink-caret .8s infinite;
+    animation:
+        typing 3s steps(50, end) forwards,
+        blink-caret .8s infinite;
 }
 
 /* The typing effect */
@@ -39,6 +39,7 @@
     from {
         width: 0
     }
+
     to {
         width: 100%
     }
@@ -46,6 +47,7 @@
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
+
     from,
     to {
         border-color: transparent
@@ -56,10 +58,12 @@
     }
 }
 
-.splash img{
+.splash img {
     z-index: -1;
     position: fixed;
     bottom: 10%;
-    right: 35%;
+    margin: 0 auto;
     scale: 2;
+    left: 0px;
+    right: 0px;
 }

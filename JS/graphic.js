@@ -50,22 +50,22 @@ function createGrid(totalCardsCount) {
     container.id = "card-grid";
     container.className = "container-grid";
 
-//     for (var i = 0; i < rowCount; i++) {
-//         var row = document.createElement('div');
-//         row.className = "row";
-//         row.id = "row" + i;
+    for (var i = 0; i < rowCount; i++) {
+        var row = document.createElement('div');
+        row.className = "row";
+        row.id = "row" + i;
 
-//         for (var j = 0; j < colCount; j++) {
-//             var box = document.createElement('div');
-//             box.className = 'col';
-//             box.id = 'col'+j;
-//             row.appendChild(box);
-//         }
+        for (var j = 0; j < colCount; j++) {
+            var box = document.createElement('div');
+            box.className = 'col';
+            box.id = 'col'+j;
+            row.appendChild(box);
+        }
 
-//         container.appendChild(row);
-//     }
-//     $(".MainArea").append(container);
-//     return container;
+        container.appendChild(row);
+    }
+    $(".MainArea").append(container);
+    return container;
 }
 
 function backgroundImageGenerator() {
