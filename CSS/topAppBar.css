@@ -1,5 +1,5 @@
 /* Menu Button */
-label {
+.topAppBar label {
     display: flex;
     flex-direction: column;
     /* width: 3rem; */
@@ -12,7 +12,7 @@ label {
     padding: 0.5rem;
 }
 
-label span {
+.topAppBar label span {
     background: var(--yellow);
     border-radius: 10px;
     height: 7px;
@@ -22,40 +22,40 @@ label span {
 }
 
 
-span:nth-of-type(1) {
+.topAppBar span:nth-of-type(1) {
     width: 50%;
 
 }
 
-span:nth-of-type(2) {
+.topAppBar span:nth-of-type(2) {
     width: 100%;
 }
 
 
-span:nth-of-type(3) {
+.topAppBar span:nth-of-type(3) {
     width: 75%;
 
 }
 
 
-input[type="checkbox"] {
+.topAppBar input[type="checkbox"] {
     display: none;
 }
 
 
-input[type="checkbox"]:checked~span:nth-of-type(1) {
+.topAppBar input[type="checkbox"]:checked~span:nth-of-type(1) {
     transform-origin: bottom;
     transform: rotatez(45deg) translate(8px, 0px)
 }
 
 
-input[type="checkbox"]:checked~span:nth-of-type(2) {
+.topAppBar input[type="checkbox"]:checked~span:nth-of-type(2) {
     transform-origin: top;
     transform: rotatez(-45deg)
 }
 
 
-input[type="checkbox"]:checked~span:nth-of-type(3) {
+.topAppBar input[type="checkbox"]:checked~span:nth-of-type(3) {
     transform-origin: bottom;
     width: 50%;
     transform: translate(30px, -11px) rotatez(45deg);
@@ -63,7 +63,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
 
 
 /* Top App Bar */
-ul {
+.topAppBar ul {
     z-index: 3;
     position: fixed;
     top: 0;
@@ -75,19 +75,19 @@ ul {
     height: 3rem;
     overflow: hidden;
     background-color: var(--myred);
-  }
-  
-  li {
+}
+
+.topAppBar li {
     float: left;
     text-align: center;
-  }
-  
-  li h1{
+}
+
+.topAppBar li h1 {
     color: var(--yellow);
     position: fixed;
-    top:0;
+    top: 0;
     left: 40%;
     display: inline-block;
     /* text-align: center; */
     font-size: 2rem;
-  }
+}
