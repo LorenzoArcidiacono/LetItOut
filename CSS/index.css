@@ -281,18 +281,24 @@ li button {
     /* filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%); */
     filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
 }
+.topAppBar{
+    display: none;
+}
 
 
-
-/* Extra small devices (phones, 600px and down) */
+/* Small devices (phones, 768px and down) */
 @media only screen and (max-width: 768px) {
     .Sidenav {
         display: none;
+        width: 100%;
+        margin: 3rem auto;
+
     }
 
     .MainArea {
         width: 100%;
         margin: 0 auto;
+        margin-top: 6rem;
     }
 
     .sec-img {
@@ -312,7 +318,7 @@ li button {
     .fab {
         /* position: fixed; */
         margin: 0;
-        right: 10%;
+        right: 8%;
         bottom: 5%;
         height: 4rem;
         width: 4rem;
@@ -344,5 +350,9 @@ li button {
 
     .splash {
         display: none;
+    }
+
+    .topAppBar{
+        display: block;
     }
 }

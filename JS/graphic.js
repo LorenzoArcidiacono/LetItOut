@@ -98,3 +98,12 @@ function closeSplashScreen() {
 }
 
 
+function triggerSideNav(){
+    if($( "#check" ).prop( "checked" )){
+        $(".Sidenav").slideDown( "slow" );
+        return;
+    }
+    else{
+        $(".Sidenav").slideUp( "slow" );
+    }
+}

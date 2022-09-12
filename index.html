@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./CSS/colors.css">
     <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/splashscreen.css">
+    <link rel="stylesheet" href="./CSS/topAppBar.css">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <link href="https://api.fontshare.com/v2/css?f[]=chillax@300,400,200&display=swap" rel="stylesheet">
     <style>
@@ -22,14 +23,33 @@
 </head>
 
 <body>
+    <!-- SPLASH SCREEN -->
     <div class="splash">
         <img src="./IMG/splash-bkg1.png" alt="">
         <h1 class="typewriter">Let it out</h1>
-        <lord-icon  src="https://cdn.lordicon.com/wxnxiano.json" trigger="morph"
+        <lord-icon src="https://cdn.lordicon.com/wxnxiano.json" trigger="morph"
             colors="primary:#f4a09c,secondary:#000000,tertiary:#9cc2f4,quaternary:#ebe6ef,quinary:#f4f19c" state="morph"
             style="width:10rem;height:10rem" class="enter-btn" onclick="closeSplashScreen();">
         </lord-icon>
     </div>
+
+    <!-- TOP APP BAR for MOBILE SCREEN -->
+    <div class="topAppBar">
+        <ul>
+            <li>
+                <label for="check">
+                    <input type="checkbox" id="check" onclick="triggerSideNav()"/> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </label>
+                </li>
+                <li>
+                    <h1>Let It Out</h1>
+                </li>
+        </ul>
+    </div>
+
 
 
     <!-- INFORMATION AREA -->
@@ -68,7 +88,7 @@
     <!-- FAB -->
     <button class="fab">
         <lord-icon src="https://cdn.lordicon.com/wloilxuq.json" trigger="hover"
-            colors="primary:#000000,secondary:#000000"onclick="openWriteCard()" class="fab-icon">
+            colors="primary:#000000,secondary:#000000" onclick="openWriteCard()" class="fab-icon">
         </lord-icon>
     </button>
 
