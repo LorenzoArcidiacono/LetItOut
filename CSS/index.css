@@ -6,6 +6,8 @@ body {
     background-color: var(--yellow);
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .MainArea {
@@ -72,7 +74,7 @@ h1 {
     -o-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-.fab-icon{
+.fab-icon {
     width: 4rem;
     height: 4rem;
 }
@@ -281,7 +283,8 @@ li button {
     /* filter: contrast(80%) saturate(0.7) hue-rotate(20deg) brightness(125%); */
     filter: contrast(80%) saturate(0.3) hue-rotate(220deg) brightness(150%);
 }
-.topAppBar{
+
+.topAppBar {
     display: none;
 }
 
@@ -290,9 +293,24 @@ li button {
 @media only screen and (max-width: 768px) {
     .Sidenav {
         display: none;
+        position:fixed;
+        z-index: 2;
+        
         width: 100%;
-        margin: 3rem auto;
+        height: 90%;
 
+        padding: 0;
+        margin: 0 auto;
+        margin-top: 5rem;
+
+    }
+
+    .Sidenav h1 {
+        display: none;
+    }
+
+    .Sidenav h2 {
+        padding: 0;
     }
 
     .MainArea {
@@ -324,12 +342,12 @@ li button {
         width: 4rem;
     }
 
-    .fab-icon{
+    .fab-icon {
         width: 3rem;
         height: 3rem;
     }
 
-    .fab:hover{
+    .fab:hover {
         transform: none;
     }
 
@@ -352,7 +370,7 @@ li button {
         display: none;
     }
 
-    .topAppBar{
+    .topAppBar {
         display: block;
     }
 }
