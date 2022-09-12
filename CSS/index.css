@@ -312,6 +312,10 @@ li button {
     .Sidenav h2 {
         padding: 0;
     }
+    .Sidenav p {
+        padding: 1rem;
+        font-size: 1rem;
+    }
 
     .MainArea {
         width: 100%;
