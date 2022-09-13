@@ -17,6 +17,7 @@ Yes please, there are so many things to do, and whoever would like to partecipat
 
 - [ ] make the website responsive for smaller screen in both orientation. At the moment it works only for laptop and other bigger screen.
 - [ ] backend to store safely all the messages
+- [ ] delete messages after a period of time
 - [ ] any good idea is welcome!
 
 Thanks, Lorenzo

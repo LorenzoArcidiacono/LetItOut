@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- API -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <!-- CSS -->
     <link rel="stylesheet" href="./CSS/colors.css">
     <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/splashscreen.css">
     <link rel="stylesheet" href="./CSS/topAppBar.css">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <!-- FONTS -->
     <link href="https://api.fontshare.com/v2/css?f[]=chillax@300,400,200&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -33,25 +35,6 @@
         </lord-icon>
     </div>
 
-    <!-- TOP APP BAR for MOBILE SCREEN -->
-    <div class="topAppBar">
-        <ul>
-            <li>
-                <label for="check">
-                    <input type="checkbox" id="check" onclick="triggerSideNav()"/> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </label>
-                </li>
-                <li>
-                    <h1>Let It Out</h1>
-                </li>
-        </ul>
-    </div>
-
-
-
     <!-- INFORMATION AREA -->
     <div class="Sidenav">
         <h1>Let It Out</h1>
@@ -70,7 +53,7 @@
         <h2>Please:</h2>
         <p>Do not share personal data, do not use real names of people, do not offend those who are reading. <br>
             <strong> Remember:</strong> this cannot be the solution to your difficulties, if you think you need help
-            contact a specialist, he/she will surely be able to help you </p>
+            contact a specialist, he/she will surely be able to help you. </p>
     </div>
 
     <!-- CARD AREA -->
@@ -93,6 +76,24 @@
     </button>
 
     <!-- HIDDEN STUFF -->
+    <!-- TOP APP BAR for MOBILE SCREEN -->
+    <div class="topAppBar">
+        <ul>
+            <li>
+                <label for="check">
+                    <input type="checkbox" id="check" onclick="triggerSideNav()" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </li>
+            <li>
+                <h1>Let It Out</h1>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- CARD READER OVERLAY -->
     <div class="overlay" id="overlay">
         <div class="overlay-card">
             <lord-icon class="close-icon" src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
@@ -103,6 +104,7 @@
         </div>
     </div>
 
+    <!-- NEW CARD OVERLAY -->
     <div class="overlay" id="overlay-new-card">
         <div class="overlay-card">
             <lord-icon class="close-icon" src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"

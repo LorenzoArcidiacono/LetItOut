@@ -1,4 +1,4 @@
-const PANTRY_ID = "ec0c17f7-74e8-4735-b0e7-828f037d73db"
+const PANTRY_ID = "ec0c17f7-74e8-4735-b0e7-828f037d73db";
 
 let messagesJSON;
 let response;
@@ -13,8 +13,8 @@ function saveMessage() {
         return;
     }
 
-    $(".title-input").val('');
-    $(".text-input").val('');
+    $(".title-input").val("");
+    $(".text-input").val("");
     $(".title-input").attr("placeholder", "");
     $(".text-input").attr("placeholder", "");
 
@@ -24,23 +24,24 @@ function saveMessage() {
     closeWriteCard();
 
     let jsondata = {
-        messages: [{
-            id: id,
-            title: title,
-            text: text,
-            date: getDate()
-        }]
-    }
+        messages: [
+            {
+                id: id,
+                title: title,
+                text: text,
+                date: getDate(),
+            },
+        ],
+    };
 
     messagesJSON.messages.push(jsondata.messages[0]);
     console.log(`Messages: ${JSON.stringify(messagesJSON)}`);
     // console.log(response);
 
-    localStorage.setItem('updatedMessages', true);
-    localStorage.setItem('messages', JSON.stringify(messagesJSON));
+    localStorage.setItem("updatedMessages", true);
+    localStorage.setItem("messages", JSON.stringify(messagesJSON));
     updateCardGrid();
     updateJsonBin(jsondata);
-
 }
 
 function retriveJsonData() {
@@ -63,15 +64,17 @@ function retriveJsonData() {
             messagesJSON = JSON.parse(req.responseText);
             response = JSON.parse(req.responseText);
             console.log(messagesJSON);
-            localStorage.setItem('messages', JSON.stringify(messagesJSON));
+            localStorage.setItem("messages", JSON.stringify(messagesJSON));
             createCards();
         }
     };
 
-    req.open("GET", "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut");
+    req.open(
+        "GET",
+        "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut"
+    );
     req.send();
 }
-
 
 function updateJsonBin(data) {
     // PANTRY
@@ -83,13 +86,16 @@ function updateJsonBin(data) {
         }
     };
 
-    req.open("PUT", "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut");
+    req.open(
+        "PUT",
+        "https://getpantry.cloud/apiv1/pantry/ec0c17f7-74e8-4735-b0e7-828f037d73db/basket/LetItOut"
+    );
     req.setRequestHeader("Content-Type", "application/json");
     req.send(JSON.stringify(data));
 }
 
 async function createCards() {
-    let card = `<div class="card" onclick="openCard('$ID')"><h2>$TITLE</h2></div>`
+    let card = `<div class="card" onclick="openCard('$ID')"><h2>$TITLE</h2></div>`;
     if (messagesJSON == undefined) {
         setTimeout(() => {
             createCards();
@@ -102,20 +108,25 @@ async function createCards() {
         let widthCard = convertRemToPixels(17);
         // 17rem -> card width
         let colCount = Math.round(widthMainArea / widthCard) - 1;
-        if(colCount == 0) colCount = 1;
+        if (colCount == 0) colCount = 1;
         // console.log(Math.round(widthMainArea / widthCard));
         // print card from newest
-        messagesJSON.messages.slice().reverse().forEach(element => {
-            console.log(element.title);
-            let next = card.replace('$ID', element.id).replace('$TITLE', element.title);
-            console.log(next);
-            $(`.container-grid #row${i} #col${j}`).append(next);
-            j++;
-            if (j == colCount) {
-                j = 0;
-                i++;
-            }
-        });
+        messagesJSON.messages
+            .slice()
+            .reverse()
+            .forEach((element) => {
+                console.log(element.title);
+                let next = card
+                    .replace("$ID", element.id)
+                    .replace("$TITLE", element.title);
+                console.log(next);
+                $(`.container-grid #row${i} #col${j}`).append(next);
+                j++;
+                if (j == colCount) {
+                    j = 0;
+                    i++;
+                }
+            });
     }
 }
 
@@ -134,5 +145,4 @@ function getDate() {
     // This arrangement can be altered based on how we want the date's format to appear.
     let currentDate = `${day}-${month}-${year}`;
     return currentDate;
-
 }
