@@ -127,6 +127,10 @@ async function createCards() {
                     i++;
                 }
             });
+            
+            setTimeout(() => {
+                triggerLoader()
+            }, 1000);
     }
 }
 

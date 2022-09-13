@@ -1,18 +1,17 @@
-
 let messages;
 
 // Open/Close the single card view
 function openCard(id) {
-    let update = localStorage.getItem('updatedMessages');
-    if(messages == null || update) {
-        messages = JSON.parse(localStorage.getItem('messages'));
+    let update = localStorage.getItem("updatedMessages");
+    if (messages == null || update) {
+        messages = JSON.parse(localStorage.getItem("messages"));
         console.log(`messages: ${messages}`);
     }
-    let element = messages.messages.find(element => element.id == id)
+    let element = messages.messages.find((element) => element.id == id);
     $(".overlay-title").text(element.title);
     $(".overlay-text").text(element.text);
     $("#overlay").fadeIn();
-    $("#overlay").css("display", "flex")
+    $("#overlay").css("display", "flex");
 }
 
 function closeCard() {
@@ -22,13 +21,13 @@ function closeCard() {
     }, 600);
 }
 
-function openWriteCard(){
+function openWriteCard() {
     // $(".overlay-title").text("Prova");
     // $(".overlay-text").text(
     //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis urna volutpat, congue leout, dictum tellus. Vivamus ac arcu ac dui tempor facilisis. Etiam sit amet mollis mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam ultricies, purus eget fringilla iaculis, metus orci placerat purus, quis."
     // );
     $("#overlay-new-card").fadeIn();
-    $("#overlay-new-card").css("display", "flex")
+    $("#overlay-new-card").css("display", "flex");
 }
 
 function closeWriteCard() {
@@ -38,32 +37,31 @@ function closeWriteCard() {
     }, 600);
 }
 
-
 // TODO: numero di colonne in base alla dimensione dello schermo
 function createGrid(totalCardsCount) {
     let widthMainArea = $(".MainArea").width();
     let widthCard = convertRemToPixels(17);
     console.log(`width: ${widthMainArea}, widthCard: ${widthCard}`);
 
-    let colCount = Math.round(widthMainArea/widthCard)-1;
-    if(colCount <= 0) colCount = 1;
-    let rowCount = Math.round(totalCardsCount/colCount);
-    if(rowCount <= 0) rowCount = 1;
+    let colCount = Math.round(widthMainArea / widthCard) - 1;
+    if (colCount <= 0) colCount = 1;
+    let rowCount = Math.round(totalCardsCount / colCount);
+    if (rowCount <= 0) rowCount = 1;
     console.log(`row:${rowCount} col:${colCount}`);
 
-    var container = document.createElement('div');
+    var container = document.createElement("div");
     container.id = "card-grid";
     container.className = "container-grid";
 
     for (var i = 0; i < rowCount; i++) {
-        var row = document.createElement('div');
+        var row = document.createElement("div");
         row.className = "row";
         row.id = "row" + i;
 
         for (var j = 0; j < colCount; j++) {
-            var box = document.createElement('div');
-            box.className = 'col';
-            box.id = 'col'+j;
+            var box = document.createElement("div");
+            box.className = "col";
+            box.id = "col" + j;
             row.appendChild(box);
         }
 
@@ -74,36 +72,44 @@ function createGrid(totalCardsCount) {
 }
 
 function backgroundImageGenerator() {
-    let first = getRandomNumber(12)
-    let second = getRandomNumber(12)
-    while(first == second){
+    let first = getRandomNumber(12);
+    let second = getRandomNumber(12);
+    while (first == second) {
         second = getRandomNumber(12);
     }
     console.log(`${first},${second}`);
-    $(".first-img").attr("src",`./IMG/img${first}.png`);
-    $(".sec-img").attr("src",`./IMG/img${second}.png`);
+    $(".first-img").attr("src", `./IMG/img${first}.png`);
+    $(".sec-img").attr("src", `./IMG/img${second}.png`);
 }
 
 function getRandomNumber(max) {
-    return (Math.floor(Math.random() *100) % max+1);
+    return (Math.floor(Math.random() * 100) % max) + 1;
 }
 
-function convertRemToPixels(rem) {    
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+function convertRemToPixels(rem) {
+    return (
+        rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
 }
 
 function closeSplashScreen() {
-    // $(".splash").fadeOut(800);    
-    $(".splash").slideUp(700);    
+    // $(".splash").fadeOut(800);
+    $(".splash").slideUp(700);
 }
 
-
-function triggerSideNav(){
-    if($( "#check" ).prop( "checked" )){
-        $(".Sidenav").slideDown( "slow" );
+function triggerSideNav() {
+    if ($("#check").prop("checked")) {
+        $(".Sidenav").slideDown("slow");
         return;
+    } else {
+        $(".Sidenav").slideUp("slow");
     }
-    else{
-        $(".Sidenav").slideUp( "slow" );
+}
+
+function triggerLoader() {
+    if ($("#overlay-loader").css("display") == "none") {
+        $("#overlay-loader").css("display", "block");
+    } else {
+        $("#overlay-loader").css("display", "none");
     }
 }

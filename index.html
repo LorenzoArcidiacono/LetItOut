@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/splashscreen.css">
     <link rel="stylesheet" href="./CSS/topAppBar.css">
+    <link rel="stylesheet" href="./CSS/loader.css">
     <!-- FONTS -->
     <link href="https://api.fontshare.com/v2/css?f[]=chillax@300,400,200&display=swap" rel="stylesheet">
     <style>
@@ -33,6 +34,11 @@
             colors="primary:#f4a09c,secondary:#000000,tertiary:#9cc2f4,quaternary:#ebe6ef,quinary:#f4f19c" state="morph"
             style="width:10rem;height:10rem" class="enter-btn" onclick="closeSplashScreen();">
         </lord-icon>
+    </div>
+
+    <!-- LOADER -->
+    <div id="overlay-loader" class="overlay">
+        <div class="loader"></div>
     </div>
 
     <!-- INFORMATION AREA -->
@@ -132,6 +138,7 @@
         $(document).ready(function () {
             retriveJsonData();
             backgroundImageGenerator();
+            triggerLoader();
         });
     </script>
 

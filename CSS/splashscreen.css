@@ -60,7 +60,7 @@
 
 .splash img {
     z-index: -1;
-    position: fixed;
+    position: absolute;
     bottom: 10%;
     margin: 0 auto;
     scale: 2;
